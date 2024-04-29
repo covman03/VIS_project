@@ -1,14 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { sampleProducts } from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <header></header>
+    <div className="d-flex flex-column vh-100">
+      <header>
+        <Navbar bg="dark" variant="dark" expand="lg">
+          <Container>
+            <Navbar.Brand>Autodily</Navbar.Brand>
+          </Container>
+          <Nav>
+            <a href="/kosik" className="nav-link">
+              Kosik
+            </a>
+            <a href="/prihlaseni" className="nav-link">
+              Přihlásit se
+            </a>
+          </Nav>
+        </Navbar>
+      </header>
       <main>
         <ul>
           {sampleProducts.map((product) => (
@@ -20,6 +30,7 @@ function App() {
               ></img>
               <h2>{product.nazev}</h2>
               <p>{product.popis}</p>
+              <p>{product.cena} Kč</p>
             </li>
           ))}
         </ul>
