@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { sampleProducts } from './data'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
@@ -20,22 +20,17 @@ function App() {
         </Navbar>
       </header>
       <main>
-        <ul>
-          {sampleProducts.map((product) => (
-            <li key={product.slug}>
-              <img
-                src={product.image}
-                alt={product.nazev}
-                className="product-image"
-              ></img>
-              <h2>{product.nazev}</h2>
-              <p>{product.popis}</p>
-              <p>{product.cena} Kč</p>
-            </li>
-          ))}
-        </ul>
+        <Container className="mt-3">
+          <Outlet />
+        </Container>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="text-center">
+          <a href="/kontakt" className="nav-link">
+            kontakt
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
