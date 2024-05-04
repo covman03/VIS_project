@@ -5,11 +5,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.product-image {
-  max-width: 200px;
-  width: 50px;
+.card-img-top {
+  max-width: 100px;
 }
 
 .rating span {
   color: gold;
+}
+
+img.large {
+  max-width: 100%;
+}
+.cardHeight {
+  height: 500px;
+  align-items: center;
 }
