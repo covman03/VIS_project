@@ -12,7 +12,8 @@ export const sampleProducts: Product[] = [
     kategorie: 'olej',
     znacka: 'Castrol',
     pocetKusu: 10,
-    hodnoceni: 3.0,
+    rating: 3.0,
+    numReviews: 10,
   },
   {
     nazev: 'Motorový olej Castrol EDGE Titanium Professional A5 0W-30, 1L',
@@ -24,7 +25,8 @@ export const sampleProducts: Product[] = [
     kategorie: 'olej',
     znacka: 'Castrol',
     pocetKusu: 10,
-    hodnoceni: 4.0,
+    rating: 4.0,
+    numReviews: 10,
   },
   {
     nazev: 'Motorový olej Ford Motorcraft A5 5W-30, 5L',
@@ -35,7 +37,8 @@ export const sampleProducts: Product[] = [
     image: '../images/Castrol-edge.png',
     kategorie: 'olej',
     znacka: 'Motorcraft',
-    pocetKusu: 10,
-    hodnoceni: 3.0,
+    pocetKusu: 0,
+    rating: 3.0,
+    numReviews: 10,
   },
 ]

@@ -7,5 +7,6 @@ export type Product = {
   kategorie: string
   znacka: string
   pocetKusu: number
-  hodnoceni: number
+  rating: number
+  numReviews: number
 }
