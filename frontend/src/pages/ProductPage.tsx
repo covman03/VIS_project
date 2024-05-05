@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet-async'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGetProductDetailsBySlugQuery } from '../hooks/productHooks'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import { ApiError } from '../types/ApiError'
 import { getError } from '../utils'
+import { convertProductToCartItem } from '../utils'
 import {
   Badge,
   Button,
@@ -15,6 +16,9 @@ import {
   Row,
 } from 'react-bootstrap'
 import Rating from '../components/Rating'
+import { useContext } from 'react'
+import { Store } from '../Store'
+import { toast } from 'react-toastify'
 
 export default function ProductPage() {
   const params = useParams()
@@ -26,6 +30,25 @@ export default function ProductPage() {
     error,
   } = useGetProductDetailsBySlugQuery(slug!)
 
+  const { state, dispatch } = useContext(Store)
+  const { cart } = state
+
+  const navigate = useNavigate()
+
+  const addToCartHandler = () => {
+    const existItem = cart.cartItems.find((x) => x._id === product!._id)
+    const quantity = existItem ? existItem.quantity + 1 : 1
+    if (product!.pocetKusu < quantity) {
+      toast.warn('Produkt je vyprodaný')
+      return
+    }
+    dispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...convertProductToCartItem(product!), quantity },
+    })
+    toast.success('Produkt byl přidán do košíku')
+    navigate('/kosik')
+  }
   return isLoading ? (
     <LoadingBox />
   ) : error ? (
@@ -86,7 +109,9 @@ export default function ProductPage() {
                 {product.pocetKusu > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button variant="primary">Přidat do košíku</Button>
+                      <Button onClick={addToCartHandler} variant="primary">
+                        Přidat do košíku
+                      </Button>
                     </div>
                   </ListGroup.Item>
                 )}
