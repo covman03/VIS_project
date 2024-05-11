@@ -21,6 +21,11 @@
 img.large {
   max-width: 100%;
 }
+.cardHeight {
+  height: 500px;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 img.thumbnail {
   height: 80px;
@@ -79,7 +84,6 @@ a.header-link,
 
 .productCard {
   margin-bottom: 20px;
-  height: 600px;
 }
 
 .productCard:hover {
@@ -89,7 +93,5 @@ a.header-link,
 .productCard a {
   color: black;
   text-decoration: none;
-  display: block;
-  align-items: center;
   font-weight: bolder;
 }
