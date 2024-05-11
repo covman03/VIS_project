@@ -127,7 +127,6 @@ function App() {
           <Outlet />
         </Container>
       </main>
-      <footer>Všechna práva vyhrazena</footer>
     </div>
   )
 }

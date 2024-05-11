@@ -21,7 +21,7 @@ export default function Homepage() {
         <title>AutoDily</title>
       </Helmet>
       {products!.map((product) => (
-        <Col key={product.slug} sm={6} md={4} lg={3}>
+        <Col key={product.slug} sm={6} md={4} lg={4}>
           <ProductItem product={product} />
         </Col>
       ))}

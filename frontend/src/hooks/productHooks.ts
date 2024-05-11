@@ -4,13 +4,13 @@ import { Product } from '../types/products'
 
 export const useGetProductsQuery = () =>
   useQuery({
-    queryKey: ['products'],
+    queryKey: ['product'],
     queryFn: async () => (await apiClient.get<Product[]>(`api/products`)).data,
   })
 
 export const useGetProductDetailsBySlugQuery = (slug: string) =>
   useQuery({
-    queryKey: ['products', slug],
+    queryKey: ['product', slug],
     queryFn: async () =>
       (await apiClient.get<Product>(`api/products/slug/${slug}`)).data,
   })

@@ -94,7 +94,7 @@ export default function SignupPage() {
         </div>
 
         <div className="mb-3">
-          Už máš účet?{' '}
+          Už máte účet?{' '}
           <Link to={`/prihlaseni?redirect=${redirect}`}>Přihlásit se</Link>
         </div>
       </Form>

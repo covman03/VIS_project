@@ -21,13 +21,13 @@ class ShippingAddress {
 
 class Item {
   @prop({ required: true })
-  public nazev!: string
+  public name!: string
   @prop({ required: true })
   public quantity!: string
   @prop({ required: true })
   public image!: number
   @prop({ required: true })
-  public cena!: number
+  public price!: number
   @prop({ ref: Product })
   public product?: Ref<Product>
 }
@@ -43,7 +43,7 @@ class PaymentResult {
   public email_address!: string
 }
 
-modelOptions({ schemaOptions: { timestamps: true } })
+@modelOptions({ schemaOptions: { timestamps: true } })
 export class Order {
   public _id!: string
   @prop()

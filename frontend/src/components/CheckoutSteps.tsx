@@ -11,7 +11,7 @@ export default function CheckoutSteps(props: {
       <Col className={props.step1 ? 'active' : ''}>Přihlásit se</Col>
       <Col className={props.step2 ? 'active' : ''}>Doprava</Col>
       <Col className={props.step3 ? 'active' : ''}>Platba</Col>
-      <Col className={props.step4 ? 'active' : ''}>Zadat objednávku</Col>
+      <Col className={props.step4 ? 'active' : ''}>Shrnutí objednávky</Col>
     </Row>
   )
 }

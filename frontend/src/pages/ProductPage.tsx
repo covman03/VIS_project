@@ -6,15 +6,7 @@ import MessageBox from '../components/MessageBox'
 import { ApiError } from '../types/ApiError'
 import { getError } from '../utils'
 import { convertProductToCartItem } from '../utils'
-import {
-  Badge,
-  Button,
-  Card,
-  Col,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from 'react-bootstrap'
+import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { useContext } from 'react'
 import { Store } from '../Store'
@@ -25,7 +17,6 @@ export default function ProductPage() {
   const { slug } = params
   const {
     data: product,
-    refetch,
     isLoading,
     error,
   } = useGetProductDetailsBySlugQuery(slug!)
@@ -66,7 +57,7 @@ export default function ProductPage() {
         <Col md={6}>
           <img className="large" src={product.image} alt={product.nazev} />
         </Col>
-        <Col md={3}>
+        <Col md={5}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <Helmet>
@@ -81,10 +72,10 @@ export default function ProductPage() {
               ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>Cena: {product.cena} Kč</ListGroup.Item>
-            <ListGroup.Item>Popis {product.popis}</ListGroup.Item>
+            <ListGroup.Item className="productText">
+              Popis {product.popis}
+            </ListGroup.Item>
           </ListGroup>
-        </Col>
-        <Col md={3}>
           <Card>
             <Card.Body>
               <ListGroup variant="flush">

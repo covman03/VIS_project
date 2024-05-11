@@ -28,7 +28,7 @@ function ProductItem({ product }: { product: Product }) {
   }
 
   return (
-    <Card>
+    <Card className="productCard">
       <Link to={`/product/${product.slug}`}>
         <img src={product.image} className="card-img-top" alt={product.nazev} />
       </Link>
@@ -37,10 +37,10 @@ function ProductItem({ product }: { product: Product }) {
           <Card.Title>{product.nazev}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.cena}</Card.Text>
+        <Card.Text>{product.cena} Kč</Card.Text>
         {product.pocetKusu === 0 ? (
           <Button variant={'light'} disabled>
-            Out of stock
+            Výprodáno
           </Button>
         ) : (
           <Button
