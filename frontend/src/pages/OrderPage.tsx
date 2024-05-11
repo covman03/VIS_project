@@ -4,7 +4,6 @@ import {
   PayPalButtonsComponentProps,
   SCRIPT_LOADING_STATE,
   usePayPalScriptReducer,
-  PayPalScriptProvider,
 } from '@paypal/react-paypal-js'
 import { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
@@ -23,6 +22,7 @@ import {
 
 export default function OrderPage() {
   const { state } = useContext(Store)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { userInfo } = state
 
   const params = useParams()
@@ -170,7 +170,7 @@ export default function OrderPage() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.cena}</Col>
+                      <Col md={3}>{item.cena}Kč</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}

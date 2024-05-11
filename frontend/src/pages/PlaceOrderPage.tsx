@@ -14,7 +14,7 @@ export default function PlaceOrderPage() {
   const navigate = useNavigate()
 
   const { state, dispatch } = useContext(Store)
-  const { cart, userInfo } = state
+  const { cart } = state
 
   const round2 = (num: number) => Math.round(num * 100 + Number.EPSILON) / 100
 
@@ -102,7 +102,7 @@ export default function PlaceOrderPage() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.cena}</Col>
+                      <Col md={3}>{item.cena} Kč</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
